@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRM管理系统</title>
+    <link rel="icon" href="/static/imgs/layout/icon.png">
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/layout.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/font-awesome.css">
+    {% block css %}
+
+    {% endblock %}
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img src="/static/imgs/layout/head_image.png" alt=""
+                 style="float: left;margin-top:5px; width:50px; height:50px;border-radius: 100px">
+            <a class="navbar-brand" href="#" style="margin-left:15px;line-height: 30px;color: #53e3a6">CRM管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <div class="navbar-right" style="position: absolute">
+                <img src="/static/imgs/layout/head_image_right.png" alt="" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="true" style="float: right;width: 50px;height: 50px;border-radius: 50px">
+                <ul class="dropdown-menu">
+                    <li><a href="#">个人中心</a></li>
+                    <li><a href="#">修改密码</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i>通知 <span class="badge">1</span></a>
+                </li>
+                <li><a href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i>消息 <span class="badge">1</span></a>
+                </li>
+                <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i>任务 <span class="badge">1</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+{#            class="col-sm-3 col-md-2 sidebar#}
+            <ul class="nav nav-sidebar">
+                <li class=""><a href="{% url 'customer' %}">客户列表</a></li>
+                <li><a href="{% url 'mycustomer' %}">我的客户</a></li>
+                <li><a href="{% url 'consultrecord' 0%}">我的跟进记录</a></li>
+                <li><a href="#">Export</a></li>
+            </ul>
+        </div>
+    <div style="position: relative;margin-left: 500px;margin-top: 50px">
+            {% block xx %}
+
+            {% endblock %}
+    </div>
+    </div>
+</div>
+
+<script src="/static/jQuery/jquery-2.1.1.min.js"></script>
+<script src="/static/bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+
+{% block js %}
+
+{% endblock %}
+
+</body>
+</html>

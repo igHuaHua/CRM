@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+</head>
+<body>
+{#<table class="table table-bordered">#}
+{#    <thead>#}
+{#    <tr>#}
+{#        <th>序号</th>#}
+{#        <th>用户名</th>#}
+{#    </tr>#}
+{#    </thead>#}
+{#    <tbody>#}
+{#    {% for user in data %}#}
+{#        <tr>#}
+{#            <td>{{ forloop.counter }}</td>#}
+{#            <td>{{ user.name }}</td>#}
+{#        </tr>#}
+{#    {% endfor %}#}
+{#    </tbody>#}
+{#</table>#}
+{% extends 'layout.html'%}
+{% block xx%}
+
+<div style="left: 200px;top: 60px;position: absolute;">
+    {% for i in data %}
+        <p>{{ i.name }}</p>
+    {% endfor %}
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+
+                <span aria-hidden="true"><a href="/crm/show_page?page=1">&laquo;</a></span>
+
+            </li>
+            {{ page.pager|safe }}
+            <li>
+
+                <span aria-hidden="true"><a href="/crm/show_page?page={{ page.last_page }}">&raquo;</a></span>
+
+            </li>
+        </ul>
+    </nav>
+</div>
+
+{% endblock %}
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

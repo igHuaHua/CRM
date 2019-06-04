@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<div class="wrapper">
+<div class="container">
+<h1>Welcome</h1>
+<form class="form" method="post">
+    {% csrf_token %}
+<input type="text" placeholder="Username" name="username">
+<input type="password" placeholder="Password" name="password">
+<button type="submit" id="login-button">Login</button>
+    <p>{{ msg }}</p>
+</form>
+</div>
+<ul class="bg-bubbles">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+<script type="text/javascript" src="{% static 'jQuery/jquery-2.1.1.min.js'%}"></script>
+<script type="text/javascript">
+{#$('#login-button').click(function(event) {#}
+{#    event.preventDefault();#}
+{##}
+{#    $('form').fadeOut(500);#}
+{#    $('.wrapper').addClass('form-success');#}
+{#{);#}
+{#    密码xiaohua123#}
+</script>
+
+</body>
+</html>

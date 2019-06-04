@@ -1,0 +1,121 @@
+{% extends  'layout.html'%}
+{% block css %}
+
+{% endblock %}
+{% block xx %}
+{#<div class="panel panel-default">#}
+{#  <!-- Default panel contents -->#}
+{#  <div class="panel-heading">Panel heading</div>#}
+{#  <div class="panel-body">#}
+{#    <table class="table table-bordered table-hover">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <th>序号</th>#}
+{#            <th>QQ</th>#}
+{#            <th>QQ昵称</th>#}
+{#            <th>姓名</th>#}
+{#            <th>性别</th>#}
+{#            <th>手机号</th>#}
+{#            <th>客户来源</th>#}
+{#            <th>班级类型</th>#}
+{#            <th>状态</th>#}
+{#            <th>咨询日期</th>#}
+{#            <th>销售</th>#}
+{#            <th>已报班级</th>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        {% for customer in all_customer %}#}
+{#            <tr>#}
+{#            <td>{{ forloop.counter }}</td>#}
+{#            <td>{{ customer.qq }}</td>#}
+{#            <td>{{ customer.qq_name }}</td>#}
+{#            <td>{{ customer.name }}</td>#}
+{#            <td>{{ customer.get_sex_display }}</td>#}
+{#            <td>{{ customer.phone }}</td>#}
+{#            <td>{{ customer.get_source_display }}</td>#}
+{#            <td>{{ customer.get_class_type_display }}</td>#}
+{#            <td>#}
+{#                {{ customer.get_status_display }}#}
+{#                {{ customer.show_status|safe }}#}
+{#            </td>#}
+{#            <td>{{ customer.date}}</td>#}
+{#            <td>{{ customer.consultant|default:'暂无'}}</td>#}
+{#            <td>{{ customer.show_class}}</td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#        </tbody>#}
+{#  </table>#}
+<div style="">
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">我的客户</div>
+  <div class="panel-body">
+  <a class="btn btn-primary" href="{% url 'add_customer' %} ">增加</a>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>QQ</th>
+            <th>QQ昵称</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>手机号</th>
+            <th>客户来源</th>
+            <th>班级类型</th>
+            <th>状态</th>
+            <th>咨询日期</th>
+            <th>销售</th>
+            <th>已报班级</th>
+            <th>跟进记录</th>
+            <th>报名记录</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for customer in all_customer %}
+            <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'edit_customer' customer.id %}">{{ customer.qq }}</a></td>
+            <td>{{ customer.qq_name }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.get_sex_display }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.get_source_display }}</td>
+            <td>{{ customer.get_class_type_display }}</td>
+            <td>
+{#                {{ customer.get_status_display }}#}
+                {{ customer.show_status|safe }}
+            </td>
+            <td>{{ customer.date}}</td>
+            <td>{{ customer.consultant|default:'暂无'}}</td>
+            <td>{{ customer.show_class}}</td>
+            <td><a href="{% url 'consultrecord' customer.id%}">查看跟进</a></td>
+            <td><a href="{% url 'enrollment_add' customer.id %}?{{ query_params }}">添加报名记录</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+  </table>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+
+                <span aria-hidden="true"><a href="/crm/mycustomer_list?page=1">&laquo;</a></span>
+
+            </li>
+            {{ page.pager|safe }}
+            <li>
+
+                <span aria-hidden="true"><a href="/crm/mycustomer_list?page={{ page.last_page }}">&raquo;</a></span>
+
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+</div>
+  </div>
+
+{% endblock %}

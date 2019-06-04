@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/reg.css">
+    <link rel="stylesheet" href="/static/css/iconfont.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-lg-offset-3">
+            <form class="form-horizontal" novalidate method="post" action="">
+                {% csrf_token %}
+                <div class="form-group {% if form_obj.username.errors.0 %}has-error{% endif %}">
+                    <label for="{{ form_obj.username.id_for_label }}"
+                           class="col-sm-2 control-label">{{ form_obj.username.label }}</label>
+                    <div class="col-sm-10">
+                        {{ form_obj.username }}
+                        <span>{{ form_obj.username.errors.0 }}</span>
+                    </div>
+                </div>
+                <div class="form-group {% if form_obj.password.errors.0 %}has-error{% endif %}">
+                    <label for="{{ form_obj.password.id_for_label }}"
+                           class="col-sm-2 control-label">{{ form_obj.password.label }}</label>
+                    <div class="col-sm-10">
+                        {{ form_obj.password }}
+                        <span>{{ form_obj.password.errors.0 }}</span>
+                    </div>
+
+                </div>
+                <div class="form-group {% if form_obj.re_password.errors.0 %}has-error{% endif %}">
+                    <label for="{{ form_obj.re_password.id_for_label }}"
+                           class="col-sm-2 control-label">{{ form_obj.re_password.label }}</label>
+                    <div class="col-sm-10">
+                        {{ form_obj.re_password }}
+                        <span>{{ form_obj.re_password.errors.0 }}</span>
+                    </div>
+
+                </div>
+                <div class="form-group {% if form_obj.name.errors.0 %}has-error{% endif %}">
+                    <label for="{{ form_obj.name.id_for_label }}"
+                           class="col-sm-2 control-label">{{ form_obj.name.label }}</label>
+                    <div class="col-sm-10">
+                        {{ form_obj.name }}
+                        <span>{{ form_obj.name.errors.0 }}</span>
+                    </div>
+
+                </div>
+                <div class="form-group {% if form_obj.department.errors.0 %}has-error{% endif %}">
+                    <label for="{{ form_obj.department.id_for_label }}"
+                           class="col-sm-2 control-label">{{ form_obj.department.label }}</label>
+                    <div class="col-sm-10">
+                        {{ form_obj.department }}
+                        <span>{{ form_obj.department.errors.0 }}</span>
+                    </div>
+                </div>
+                <button type="submit">提交</button>
+            </form>
+        </div>
+    </div>
+
+
+</div> <!-- /container -->
+
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+</body>
+</html>

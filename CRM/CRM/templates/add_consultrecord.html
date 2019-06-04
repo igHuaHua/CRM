@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block xx %}
+    <div class="panel panel-default">
+        <div class="panel-heading">添加跟进记录</div>
+        <div class="panel-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <form action="" method="post" novalidate>
+                            {% csrf_token %}
+                            {% for i in obj %}
+                                <div class="form-group row {% if i.errors.0 %}has-error{% endif %}">
+                                    <label for="{{ i.id_for_label }}"
+                                           class="col-sm-2 control-label">{{ i.label }}</label>
+                                    <div class="col-sm-10">
+                                        {{ i }}
+                                        <span class="help-block">{{ i.errors.0 }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <button type="submit">提交</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
